@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Konekt">
+  <title>Konekt</title>
+  <rect width="512" height="512" rx="112" fill="#4872b0"/>
+  <g>
+    <circle cx="256" cy="256" r="137.6" fill="none" stroke="#ffffff" stroke-width="51.6"/>
+    <path d="M256 256V182.9M256 256l55.9 34.4" fill="none" stroke="#f0a878" stroke-width="34.4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

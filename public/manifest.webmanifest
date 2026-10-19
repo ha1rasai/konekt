@@ -1,0 +1,16 @@
+{
+  "name": "Konekt",
+  "short_name": "Konekt",
+  "description": "Online zakazivanje termina",
+  "start_url": "/panel",
+  "display": "standalone",
+  "background_color": "#f4f7fc",
+  "theme_color": "#4872b0",
+  "lang": "bs",
+  "icons": [
+    { "src": "/img/ikona-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/img/ikona-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/img/ikona-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "/img/ikona.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -1,0 +1,6 @@
+.dokument { max-width: 760px; margin: 32px auto; padding: 32px; }
+.dokument h2 { font-size: 1.2rem; margin-top: 28px; }
+.dokument ul { padding-left: 20px; margin: 0 0 1em; display: grid; gap: 8px; }
+.nije-pronadjeno { text-align: center; padding: 18vh 0 64px; display: grid; justify-items: center; gap: 12px; }
+.nije-pronadjeno .wordmark { font-size: 2.6rem; margin-bottom: 12px; }
+@media (max-width: 640px) { .dokument { padding: 20px; margin: 16px auto; } }

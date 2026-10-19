@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="bs" data-tema="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Admin – Konekt</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/fontovi.css">
+  <link rel="stylesheet" href="/css/teme.css">
+  <link rel="stylesheet" href="/css/konekt.css">
+  <link rel="stylesheet" href="/css/admin.css">
+  <script type="module" src="/js/admin.js"></script>
+</head>
+<body>
+  <header class="zaglavlje">
+    <div class="omot">
+      <a class="wordmark" href="/" aria-label="Konekt">k<svg class="sat" viewBox="0 0 40 40" aria-hidden="true"><circle class="prsten" cx="20" cy="20" r="16"/><path class="kazaljke" d="M20 20V11.5M20 20l6.5 4"/></svg>nekt</a>
+      <nav><a class="dugme drugo malo" href="/panel">Moj panel</a></nav>
+    </div>
+  </header>
+  <main class="omot admin">
+    <h1>Admin pregled</h1>
+    <p class="prigusen">Ovdje vidiš biznise, vlasnike, pretplate i broj termina. Imena i telefoni klijenata se ne prikazuju, a ionako su zaključani ključem svakog biznisa.</p>
+    <div class="admin-zbir" id="zbir"></div>
+
+    <div class="kartica">
+      <div class="kartica-naslov">
+        <div>
+          <h2>Nova pozivnica</h2>
+          <p class="prigusen malo">Kad kupac uplati pretplatu, napravi mu pozivnicu. Samo s njom može otvoriti profil, i to samo s ovim emailom.</p>
+        </div>
+      </div>
+      <form id="forma-pozivnica">
+        <div class="red-polja">
+          <div class="polje"><label for="p-email">Email kupca</label><input id="p-email" name="email" type="email" required></div>
+          <div class="polje"><label for="p-ime">Ime ili naziv salona (nije obavezno)</label><input id="p-ime" name="ime" type="text" maxlength="80"></div>
+          <div class="polje">
+            <label for="p-mjeseci">Plaćeno</label>
+            <select id="p-mjeseci" name="mjeseci">
+              <option value="1">1 mjesec</option><option value="3">3 mjeseca</option><option value="6">6 mjeseci</option>
+              <option value="12">12 mjeseci</option><option value="zauvijek">Zauvijek</option>
+            </select>
+          </div>
+        </div>
+        <button class="dugme" type="submit">Napravi pozivnicu</button>
+      </form>
+      <div class="poruka uspjeh" id="nova-pozivnica" hidden></div>
+      <h3 class="admin-podnaslov">Pozivnice</h3>
+      <div class="tabela-omot">
+        <table>
+          <thead><tr><th>Kupac</th><th>Plaćeno</th><th>Stanje</th><th></th></tr></thead>
+          <tbody id="tabela-pozivnice"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="kartica">
+      <div class="kartica-naslov">
+        <h2>Biznisi</h2>
+        <input type="search" id="pretraga" placeholder="Pretraži naziv, vlasnika, email, grad…" aria-label="Pretraga">
+      </div>
+      <div class="tabela-omot">
+        <table>
+          <thead>
+            <tr><th>Biznis</th><th>Vlasnik</th><th>Pretplata</th><th>Termini</th><th>Akcije</th></tr>
+          </thead>
+          <tbody id="tabela"></tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

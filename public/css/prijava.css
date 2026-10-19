@@ -1,0 +1,10 @@
+.prijava-omot { width: min(440px, 100% - 32px); margin: 0 auto; padding: 48px 0 64px; }
+.prijava-logo { text-align: center; margin-bottom: 28px; }
+.prijava-logo .wordmark { font-size: 2.4rem; }
+.prijava-omot h1 { font-size: 1.7rem; margin-bottom: 6px; }
+.prijava-omot form { margin-top: 20px; }
+.prijava-linkovi { text-align: center; margin: 16px 0 0; font-size: .93rem; color: var(--tekst-2); }
+.kod-oporavka { font: 700 clamp(.9rem, 4.3vw, 1.35rem)/1.4 ui-monospace, Consolas, monospace; letter-spacing: .03em; white-space: nowrap; overflow-x: auto; text-align: center; padding: 18px 12px; margin: 18px 0; border-radius: 14px; background: var(--akcent-blag); border: 2px dashed color-mix(in srgb, var(--akcent) 45%, transparent); user-select: all; }
+.kod-dugmad { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.kod-dugmad .dugme { flex: 1 1 auto; }
+.otkljucavanje { margin-top: 8px; }

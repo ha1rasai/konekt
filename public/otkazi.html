@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="bs" data-tema="konekt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Otkazivanje termina – Konekt</title>
+  <meta name="robots" content="noindex">
+  <meta name="referrer" content="no-referrer">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/fontovi.css">
+  <link rel="stylesheet" href="/css/teme.css">
+  <link rel="stylesheet" href="/css/konekt.css">
+  <link rel="stylesheet" href="/css/profil.css">
+  <script type="module" src="/js/otkazi.js"></script>
+</head>
+<body>
+  <main class="profil-omot">
+    <div id="ucitavanje" class="profil-ucitavanje"><span class="ucitavanje" aria-label="Učitavanje"></span></div>
+    <section class="kartica" id="sadrzaj" hidden>
+      <h1 id="naslov">Otkazivanje termina</h1>
+      <div class="sazetak" id="detalji"></div>
+      <div class="poruka greska" id="greska" role="alert" hidden></div>
+      <p class="prigusen" id="opis"></p>
+      <button class="dugme opasno puno" type="button" id="dugme-otkazi" hidden>Otkaži termin</button>
+      <p class="centar"><a id="link-profil" href="/">Zakaži novi termin</a></p>
+    </section>
+    <section class="kartica centar" id="nema" hidden>
+      <h1>Termin nije pronađen</h1>
+      <p class="prigusen">Link nije ispravan ili je termin već obrisan.</p>
+    </section>
+    <footer class="profil-podnozje">
+      <div class="podnozje-linija" aria-hidden="true"></div>
+      <a href="/" class="konekt-poziv">
+        <span class="konekt-poziv-glava"><small>Zakazivanje uz</small><span class="wordmark">k<svg class="sat" viewBox="0 0 40 40" aria-hidden="true"><circle class="prsten" cx="20" cy="20" r="16"/><path class="kazaljke" d="M20 20V11.5M20 20l6.5 4"/></svg>nekt</span></span>
+        <span class="konekt-poziv-tekst">
+          <strong>Imaš salon ili radiš po terminima?</strong>
+          <span>Napravi ovakav profil za svoje klijente</span>
+        </span>
+        <span class="konekt-poziv-strelica" aria-hidden="true">→</span>
+      </a>
+    </footer>
+  </main>
+</body>
+</html>

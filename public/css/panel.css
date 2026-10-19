@@ -1,0 +1,236 @@
+/* Panel za vlasnika profila */
+.panel { padding: 24px 0 64px; }
+.panel-glava { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+.panel-ko { display: flex; align-items: center; gap: 12px; min-width: 0; }
+.panel-ko strong { display: block; font-family: var(--font-naslov); font-size: 1.2rem; }
+.link-kopiraj { border: 0; background: none; padding: 0; color: var(--tekst-2); font: inherit; font-size: .85rem; cursor: pointer; text-align: left; word-break: break-all; }
+.link-kopiraj:hover { color: var(--akcent); }
+
+.dobrodoslica { border-color: color-mix(in srgb, var(--akcent) 35%, var(--rub)); }
+.kontrolna-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.kontrolna-lista li { display: flex; align-items: center; gap: 10px; }
+.kontrolna-lista .tacka { width: 22px; height: 22px; border-radius: 50%; border: 2px solid var(--rub); flex: none; display: grid; place-items: center; font-size: .75rem; }
+.kontrolna-lista .gotovo .tacka { background: var(--uspjeh); border-color: var(--uspjeh); color: #fff; }
+.kontrolna-lista .gotovo span:last-child { color: var(--tekst-2); text-decoration: line-through; }
+.kontrolna-lista button { border: 0; background: none; color: var(--akcent); font: inherit; cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; }
+
+.tab-sadrzaj > .kartica + .kartica { margin-top: 16px; }
+
+/* Kalendar */
+.kalendar-nav { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+.kalendar-datum, .kalendar-akcije { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.kalendar-datum input[type="date"] { width: auto; min-height: 36px; padding: 6px 10px; }
+.kalendar-datum .dugme[aria-label] { width: 36px; padding: 0; font-size: 1.2rem; }
+
+.sedmica { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin: 18px 0 8px; }
+.sedmica button {
+  display: grid; justify-items: center; gap: 2px; padding: 8px 0; border-radius: 12px; border: 1px solid var(--rub);
+  background: var(--povrsina); color: var(--tekst); font: inherit; cursor: pointer; position: relative;
+}
+.sedmica small { font-size: .7rem; color: var(--tekst-2); text-transform: uppercase; font-weight: 600; }
+.sedmica b { font: 700 1.05rem var(--font-naslov); }
+.sedmica .tackice { display: flex; gap: 3px; height: 6px; }
+.sedmica .tackice i { width: 6px; height: 6px; border-radius: 50%; background: var(--akcent); }
+.sedmica .tackice i.ceka { background: var(--upozorenje); }
+.sedmica button.danas { border-color: var(--akcent); }
+.sedmica button[aria-current="date"] { background: var(--akcent); border-color: var(--akcent); color: var(--akcent-tekst); }
+.sedmica button[aria-current="date"] small { color: var(--akcent-tekst); opacity: .85; }
+.sedmica button[aria-current="date"] .tackice i { background: var(--akcent-tekst); }
+
+.dan-naslov { margin: 20px 0 2px; font-size: 1.25rem; }
+.lista-termina { display: grid; gap: 8px; margin-top: 12px; }
+.termin-red {
+  display: grid; grid-template-columns: 92px 1fr auto; gap: 4px 16px; align-items: center;
+  padding: 12px 14px; border-radius: 14px; border: 1px solid var(--rub); background: var(--povrsina);
+  border-left: 4px solid var(--akcent);
+}
+.termin-red.ceka { border-left-color: var(--upozorenje); }
+.termin-red.blok { border-left-color: var(--tekst-2); background: var(--povrsina-2); }
+.termin-red.otkazan, .termin-red.odbijen { opacity: .65; border-left-color: var(--greska); }
+.termin-vrijeme { font: 700 1rem var(--font-naslov); }
+.termin-vrijeme small { display: block; font: 500 .8rem var(--font-tekst); color: var(--tekst-2); }
+.termin-info { min-width: 0; }
+.termin-info strong { display: block; }
+.termin-info .detalji { font-size: .87rem; color: var(--tekst-2); display: flex; gap: 6px 12px; flex-wrap: wrap; align-items: center; }
+.termin-info a { color: var(--tekst-2); }
+.termin-akcije { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.otkazani { margin-top: 16px; }
+.otkazani summary { cursor: pointer; color: var(--tekst-2); font-size: .9rem; font-weight: 600; }
+.cekanje { border-color: color-mix(in srgb, var(--upozorenje) 45%, var(--rub)); }
+
+/* Usluge */
+.lista-usluga { display: grid; gap: 8px; }
+.usluga-red { display: grid; grid-template-columns: auto 1fr auto; gap: 12px; align-items: center; padding: 12px 14px; border: 1px solid var(--rub); border-radius: 14px; background: var(--povrsina); }
+.usluga-red.neaktivna { opacity: .6; }
+.usluga-red strong { display: block; }
+.usluga-red .detalji { font-size: .87rem; color: var(--tekst-2); }
+.redoslijed { display: grid; gap: 2px; }
+.redoslijed button { border: 0; background: none; color: var(--tekst-2); cursor: pointer; padding: 0 4px; font-size: .8rem; line-height: 1; }
+.redoslijed button:hover { color: var(--akcent); }
+.redoslijed button:disabled { opacity: .25; cursor: default; }
+
+/* Radno vrijeme */
+.radni-dani { display: grid; gap: 8px; margin-bottom: 20px; }
+.radni-dan { display: grid; grid-template-columns: 150px 1fr; gap: 12px; align-items: center; padding: 10px 12px; border-radius: 12px; background: var(--povrsina-2); }
+.radni-dan .kvacica { font-weight: 600; align-items: center; }
+.radni-dan .vremena { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.radni-dan input[type="time"] { width: 112px; min-height: 38px; padding: 6px 8px; }
+.radni-dan .pauza { display: flex; gap: 8px; align-items: center; color: var(--tekst-2); font-size: .87rem; }
+.radni-dan.ne-radi .vremena { opacity: .4; pointer-events: none; }
+.neradni-forma { align-items: end; }
+.neradni-lista { display: flex; gap: 8px; flex-wrap: wrap; }
+.neradni-lista span { display: inline-flex; align-items: center; gap: 6px; padding: 6px 6px 6px 12px; border-radius: 99px; background: var(--povrsina-2); border: 1px solid var(--rub); font-size: .88rem; }
+.neradni-lista button { border: 0; background: none; cursor: pointer; color: var(--tekst-2); font-size: 1rem; width: 24px; height: 24px; border-radius: 50%; }
+.neradni-lista button:hover { background: var(--greska-blag); color: var(--greska); }
+.pravila-polja { margin-top: 16px; }
+
+/* Profil i izgled */
+.link-kartica { display: flex; justify-content: space-between; gap: 16px; align-items: center; flex-wrap: wrap; background: var(--akcent-blag); border-color: color-mix(in srgb, var(--akcent) 30%, var(--rub)); }
+.link-kartica h2 { margin-bottom: 2px; }
+.link-kartica p { margin: 0; }
+.link-red { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.link-red code { padding: 10px 12px; background: var(--povrsina); border: 1px solid var(--rub); border-radius: 10px; font-size: .9rem; word-break: break-all; }
+.logo-red { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.logo-red .avatar { width: 112px; height: 112px; }
+.logo-dugmad { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.logo-dugmad p { flex-basis: 100%; margin: 4px 0 0; }
+
+.pretplata-stanje { display: grid; gap: 8px; }
+.pretplata-stanje .iznos { font: 800 1.6rem var(--font-naslov); }
+.opasna-zona { border-color: color-mix(in srgb, var(--greska) 30%, var(--rub)); }
+
+@media (max-width: 640px) {
+  .termin-red { grid-template-columns: 70px 1fr; }
+  .termin-akcije { grid-column: 1 / -1; justify-content: flex-start; }
+  .radni-dan { grid-template-columns: 1fr; }
+  .sedmica { gap: 4px; }
+  .sedmica button { padding: 6px 0; }
+  .panel-glava .tabovi { width: 100%; }
+}
+
+.dobrodoslica, #obavijest-pretplata .poruka { margin-bottom: 20px; }
+.kod-oporavka { font: 700 clamp(.9rem, 4.3vw, 1.25rem)/1.4 ui-monospace, Consolas, monospace; letter-spacing: .03em; white-space: nowrap; overflow-x: auto; text-align: center; padding: 16px 12px; margin: 12px 0 16px; border-radius: 14px; background: var(--akcent-blag); border: 2px dashed color-mix(in srgb, var(--akcent) 45%, transparent); user-select: all; }
+.zakljucano { color: var(--tekst-2); font-style: italic; }
+
+.radni-dan select { width: 96px; min-height: 38px; padding: 6px 8px; }
+.ima-pozadinu .panel-glava { background: color-mix(in srgb, var(--povrsina) 85%, transparent); backdrop-filter: blur(10px); padding: 10px 12px; border-radius: var(--r-veliko); border: 1px solid var(--rub); }
+.pozadina-red { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
+.pozadina-pregled { width: 200px; height: 120px; border-radius: 14px; border: 2px dashed var(--rub); display: grid; place-items: center; color: var(--tekst-2); font-size: .85rem; background: var(--povrsina-2) center / cover no-repeat; }
+.pozadina-pregled.ima-sliku { border-style: solid; }
+.pozadina-pregled.ima-sliku span { display: none; }
+
+/* ---------- Veća profilna slika u zaglavlju panela ---------- */
+.panel-ko { gap: 16px; }
+.panel-ko .avatar { width: 72px; height: 72px; font-size: 1.6rem; border-width: 3px; }
+.panel-ko .avatar-dugme .olovka { width: 28px; height: 28px; right: -2px; bottom: -2px; }
+.panel-ko .avatar-dugme .olovka svg { width: 14px; height: 14px; }
+.panel-ko > div { min-width: 0; display: grid; gap: 4px; justify-items: start; }
+.pogled-klijenta { margin-top: 2px; }
+
+/* ---------- Postavke ---------- */
+.izbor-opcija { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; }
+.opcija-kartica { display: flex; gap: 12px; align-items: flex-start; padding: 16px; border: 2px solid var(--rub); border-radius: 16px; cursor: pointer; background: var(--povrsina); }
+.opcija-kartica:has(input:checked) { border-color: var(--akcent); background: var(--akcent-blag); }
+.opcija-kartica input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--akcent); flex: none; }
+.opcija-kartica strong { display: block; margin-bottom: 4px; }
+.opcija-kartica span span { font-size: .87rem; color: var(--tekst-2); }
+#forma-pravila .kartica + .kartica { margin-top: 16px; }
+#forma-pravila + .kartica { margin-top: 16px; }
+#hitno-detalji { margin: 8px 0 16px; transition: opacity .2s; }
+#hitno-detalji.ugaseno { opacity: .45; pointer-events: none; }
+#hitni-dani .radni-dan { grid-template-columns: 150px 1fr; }
+
+/* ---------- Termini: hitno, cijena, napomena ---------- */
+.oznaka-status.hitno { background: color-mix(in srgb, #e0502f 15%, transparent); color: #c4421f; }
+.napomena-klijenta { display: block; margin-top: 4px; font-size: .87rem; font-style: italic; color: var(--tekst); overflow-wrap: anywhere; }
+
+/* ---------- Usluge: tražilica i grupe ---------- */
+.trazilica { margin-bottom: 12px; }
+.grupa-oznaka { display: inline-block; padding: 1px 8px; margin-right: 6px; border-radius: 99px; background: var(--akcent-blag); color: var(--akcent); font-size: .75rem; font-weight: 600; }
+
+/* ---------- Mobilni prikaz ---------- */
+.termin-red { grid-template-columns: 92px minmax(0, 1fr) auto; }
+.termin-info, .termin-info .detalji, .usluga-red > div { min-width: 0; overflow-wrap: anywhere; }
+.usluga-red { grid-template-columns: auto minmax(0, 1fr) auto; }
+@media (max-width: 720px) {
+  .panel-glava { flex-direction: column; align-items: stretch; }
+  .panel-glava .tabovi { width: 100%; }
+  .kalendar-nav { flex-direction: column; align-items: stretch; }
+  .kalendar-datum { justify-content: space-between; }
+  .kalendar-datum input[type="date"] { flex: 1; min-width: 0; }
+  .kalendar-akcije .dugme { flex: 1; }
+  .termin-red { grid-template-columns: 64px minmax(0, 1fr); padding: 12px; }
+  .termin-akcije { grid-column: 1 / -1; justify-content: flex-start; }
+  .usluga-red { grid-template-columns: auto minmax(0, 1fr); }
+  .usluga-red .termin-akcije { grid-column: 1 / -1; }
+  .radni-dan, #hitni-dani .radni-dan { grid-template-columns: 1fr; }
+  .radni-dan .vremena { gap: 6px; }
+  .radni-dan select { width: auto; flex: 1 1 80px; }
+  .radni-dan .pauza { flex-wrap: wrap; width: 100%; }
+  .link-kartica, .link-red { flex-direction: column; align-items: stretch; }
+  .link-red .dugme { width: 100%; }
+  .kartica { padding: 18px; }
+  .zaglavlje nav .dugme { padding-inline: 8px; }
+  .sedmica { gap: 3px; }
+  .sedmica small { font-size: .62rem; }
+}
+.dobrodoslica .kartica-naslov { flex-wrap: nowrap; align-items: flex-start; }
+.kontrolna-lista button { text-align: left; }
+
+/* ---------- Tabovi s ikonama; na mobitelu traka na dnu ekrana ---------- */
+.tab-ikona { width: 18px; height: 18px; flex: none; }
+.tab-kratko { display: none; }
+@media (max-width: 720px) {
+  .panel { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+  .panel-glava .tabovi {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; width: 100%;
+    display: grid; grid-template-columns: repeat(6, 1fr); gap: 0; overflow: visible;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom, 0px));
+    border-radius: 18px 18px 0 0; background: var(--povrsina);
+    border-top: 1px solid var(--rub); box-shadow: 0 -6px 24px rgba(0, 0, 0, .12);
+  }
+  .panel-glava .tabovi button {
+    position: relative; flex-direction: column; justify-content: center; gap: 3px;
+    min-height: 56px; padding: 6px 2px; border-radius: 12px; font-size: .68rem; font-weight: 600; line-height: 1.1;
+  }
+  .panel-glava .tabovi button[aria-selected="true"] { background: var(--akcent-blag); color: var(--akcent); box-shadow: none; }
+  .tab-ikona { width: 22px; height: 22px; }
+  .tab-pun { display: none; }
+  .tab-kratko { display: block; }
+  .tabovi .broj { position: absolute; top: 4px; right: calc(50% - 22px); min-width: 18px; height: 18px; font-size: .65rem; }
+  .ima-pozadinu .panel-glava .tabovi { background: var(--povrsina); }
+}
+@media (max-width: 720px) {
+  /* backdrop-filter bi "zarobio" donju traku unutar zaglavlja, pa ga na mobitelu nema */
+  .ima-pozadinu .panel-glava { backdrop-filter: none; background: color-mix(in srgb, var(--povrsina) 92%, transparent); }
+}
+
+.hitna-potvrda { margin-bottom: 16px; }
+
+/* Neradni dani: Od i Do jedan pored drugog, dugme ispod (i na mobitelu) */
+.neradni-forma { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto; align-items: end; }
+.neradni-forma .polje { min-width: 0; }
+.neradni-forma input[type="date"] { width: 100%; padding-inline: 8px; font-size: .95rem; }
+/* Postavke: polja jedno pored drugog */
+.pravila-polja { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+@media (max-width: 720px) {
+  .neradni-forma { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 10px; }
+  .neradni-forma .polje:last-child { grid-column: 1 / -1; }
+  .neradni-forma .polje:last-child .oznaka { display: none; }
+  .neradni-forma .polje:last-child .dugme { width: 100%; }
+  #hitno-detalji .pravila-polja { grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr); gap: 0 10px; }
+  #hitno-detalji .pravila-polja .polje { min-width: 0; }
+  #hitno-detalji .pravila-polja label { font-size: .82rem; }
+  .broj-jedinica select { padding-inline: 6px; font-size: .9rem; }
+}
+
+/* Neradni dani na telefonu: Od i Do jedno ispod drugog, preko cijele širine (najsigurnije na svim telefonima) */
+@media (max-width: 480px) {
+  .neradni-forma { grid-template-columns: 1fr; gap: 0; }
+  .neradni-forma .polje { margin-bottom: 12px; }
+  .neradni-forma .polje:last-child { grid-column: auto; margin-bottom: 4px; }
+  .kalendar-datum input[type="date"] { width: auto; flex: 1 1 0; }
+}
+
+.smjestaj-polja { grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+@media (max-width: 480px) { .smjestaj-polja { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 10px; } .smjestaj-polja label { font-size: .82rem; } }

@@ -1,0 +1,21 @@
+.admin { padding: 32px 0 64px; }
+.admin-zbir { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin: 20px 0; }
+.admin-zbir .kartica { margin: 0; padding: 16px 18px; }
+.admin-zbir b { display: block; font: 800 1.8rem var(--font-naslov); }
+.admin-zbir span { color: var(--tekst-2); font-size: .88rem; }
+#pretraga { max-width: 280px; min-height: 38px; }
+.admin td .malo { display: block; }
+.admin .akcije { display: flex; gap: 6px; flex-wrap: wrap; }
+.admin tr.neaktivan td { opacity: .55; }
+.admin-podnaslov { margin: 24px 0 10px; }
+.link-pozivnice { display: block; margin: 8px 0; padding: 8px 10px; background: var(--povrsina); border-radius: 8px; word-break: break-all; font-size: .85rem; }
+/* Na mobitelu tabele postaju kartice. */
+@media (max-width: 720px) {
+  .admin .tabela-omot { border: 0; }
+  .admin table, .admin tbody, .admin tr, .admin td { display: block; width: 100%; }
+  .admin thead { display: none; }
+  .admin tr { border: 1px solid var(--rub); border-radius: 14px; padding: 8px 12px; margin-bottom: 10px; background: var(--povrsina); }
+  .admin td { border: 0; padding: 6px 0; }
+  .admin td[data-oznaka]:not([data-oznaka=""])::before { content: attr(data-oznaka); display: block; font-size: .72rem; text-transform: uppercase; letter-spacing: .04em; color: var(--tekst-2); font-weight: 600; }
+  #pretraga { max-width: none; width: 100%; }
+}

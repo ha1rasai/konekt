@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1080" width="1080" height="1080" role="img" aria-label="Konekt">
+  <title>Konekt</title>
+  <rect width="1080" height="1080" fill="#ffffff"/>
+  <g>
+    <circle cx="540" cy="540" r="320" fill="none" stroke="#4872b0" stroke-width="120"/>
+    <path d="M540 540V370M540 540l130 80" fill="none" stroke="#f0a878" stroke-width="80" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

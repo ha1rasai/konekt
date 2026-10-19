@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="bs" data-tema="konekt">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Panel – Konekt</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/css/fontovi.css">
+  <link rel="stylesheet" href="/css/teme.css">
+  <link rel="stylesheet" href="/css/konekt.css">
+  <link rel="stylesheet" href="/css/panel.css">
+  <script type="module" src="/js/panel.js"></script>
+</head>
+<body>
+  <header class="zaglavlje">
+    <div class="omot">
+      <a class="wordmark" href="/panel" aria-label="Konekt panel">k<svg class="sat" viewBox="0 0 40 40" aria-hidden="true"><circle class="prsten" cx="20" cy="20" r="16"/><path class="kazaljke" d="M20 20V11.5M20 20l6.5 4"/></svg>nekt</a>
+      <nav aria-label="Račun">
+        <a class="dugme tekstualno malo" href="/admin" id="link-admin" hidden>Admin</a>
+        <button class="dugme tekstualno malo" type="button" id="dugme-odjava">Odjava</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="omot panel">
+    <div id="obavijest-pretplata"></div>
+
+    <section class="kartica dobrodoslica" id="dobrodoslica" hidden>
+      <div class="kartica-naslov">
+        <h2>Dobro došli u Konekt! 👋</h2>
+        <button class="dugme tekstualno malo" type="button" id="zatvori-dobrodoslicu" aria-label="Zatvori">✕</button>
+      </div>
+      <p class="prigusen">Još par koraka i tvoj link je spreman za Instagram:</p>
+      <ol class="kontrolna-lista" id="kontrolna-lista"></ol>
+    </section>
+
+    <div class="panel-glava">
+      <div class="panel-ko">
+        <button type="button" class="avatar-dugme" id="glava-avatar-dugme" aria-label="Promijeni logo" title="Promijeni logo"><span class="avatar malo" id="glava-avatar"></span><span class="olovka" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="currentColor" stroke-width="2"/></svg></span></button>
+        <div>
+          <strong id="glava-naziv"></strong>
+          <button class="link-kopiraj" type="button" id="glava-link" title="Kopiraj link"></button>
+          <a class="dugme blago malo pogled-klijenta" id="pogled-klijenta" href="#" target="_blank" rel="noopener">👁 Pogledaj kao klijent</a>
+        </div>
+      </div>
+      <div class="tabovi" role="tablist" aria-label="Panel">
+        <button role="tab" aria-selected="true" data-tab="kalendar"><svg class="tab-ikona" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15" rx="3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 10h17M8 3v4M16 3v4" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tab-pun">Kalendar</span><span class="tab-kratko">Kalendar</span> <span class="broj" id="broj-cekanje" hidden></span></button>
+        <button role="tab" aria-selected="false" data-tab="usluge"><svg class="tab-ikona" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="4.5" cy="6" r="1.2" fill="currentColor"/><circle cx="4.5" cy="12" r="1.2" fill="currentColor"/><circle cx="4.5" cy="18" r="1.2" fill="currentColor"/></svg><span class="tab-pun">Usluge</span><span class="tab-kratko">Usluge</span></button>
+        <button role="tab" aria-selected="false" data-tab="radno"><svg class="tab-ikona" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 7.5V12l3 2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tab-pun">Radno vrijeme</span><span class="tab-kratko">Vrijeme</span></button>
+        <button role="tab" aria-selected="false" data-tab="postavke"><svg class="tab-ikona" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h10M18 7h2M4 17h4M12 17h8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="7" r="2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="17" r="2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tab-pun">Postavke</span><span class="tab-kratko">Postavke</span></button>
+        <button role="tab" aria-selected="false" data-tab="izgled"><svg class="tab-ikona" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5a8.5 8.5 0 100 17c1.2 0 1.8-.8 1.8-1.7 0-1.2-1-1.5-1-2.6 0-1 .8-1.7 1.8-1.7H17a3.5 3.5 0 003.5-3.5c0-4.2-3.8-7.5-8.5-7.5z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7.5" cy="11" r="1.1" fill="currentColor"/><circle cx="10.5" cy="7.5" r="1.1" fill="currentColor"/><circle cx="15" cy="7.8" r="1.1" fill="currentColor"/></svg><span class="tab-pun">Profil i izgled</span><span class="tab-kratko">Izgled</span></button>
+        <button role="tab" aria-selected="false" data-tab="racun"><svg class="tab-ikona" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.8" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M4.5 20c1.3-3.6 4.2-5.2 7.5-5.2s6.2 1.6 7.5 5.2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="tab-pun">Račun</span><span class="tab-kratko">Račun</span></button>
+      </div>
+    </div>
+
+    <!-- ================= KALENDAR ================= -->
+    <section class="tab-sadrzaj" data-sadrzaj="kalendar">
+      <div class="kartica cekanje" id="cekanje" hidden>
+        <div class="kartica-naslov"><h3>Čeka tvoju potvrdu</h3></div>
+        <div class="lista-termina" id="lista-cekanje"></div>
+      </div>
+
+      <div class="kartica">
+        <div class="kalendar-nav">
+          <div class="kalendar-datum">
+            <button class="dugme drugo malo" type="button" id="dan-nazad" aria-label="Prethodni dan">‹</button>
+            <label class="sr-only" for="izbor-datuma">Datum</label>
+            <input type="date" id="izbor-datuma">
+            <button class="dugme drugo malo" type="button" id="dan-naprijed" aria-label="Sljedeći dan">›</button>
+            <button class="dugme blago malo" type="button" id="dan-danas">Danas</button>
+          </div>
+          <div class="kalendar-akcije">
+            <button class="dugme malo" type="button" id="dugme-novi-termin">+ Termin</button>
+            <button class="dugme drugo malo" type="button" id="dugme-blokiraj">Blokiraj vrijeme</button>
+          </div>
+        </div>
+        <div class="sedmica" id="sedmica"></div>
+        <h2 class="dan-naslov" id="dan-naslov"></h2>
+        <p class="prigusen malo" id="dan-radno"></p>
+        <div class="lista-termina" id="lista-dan"></div>
+        <details class="otkazani" id="otkazani-omot" hidden>
+          <summary>Otkazani i odbijeni (<span id="otkazani-broj">0</span>)</summary>
+          <div class="lista-termina" id="lista-otkazani"></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= USLUGE ================= -->
+    <section class="tab-sadrzaj" data-sadrzaj="usluge" hidden>
+      <div class="kartica">
+        <div class="kartica-naslov">
+          <div>
+            <h2>Usluge</h2>
+            <p class="prigusen malo">Klijent bira uslugu, a slobodni termini se računaju iz njenog trajanja.</p>
+          </div>
+          <button class="dugme" type="button" id="dugme-nova-usluga">+ Nova usluga</button>
+        </div>
+        <input type="search" id="trazi-uslugu" class="trazilica" placeholder="Traži uslugu…" aria-label="Traži uslugu" hidden>
+        <div class="lista-usluga" id="lista-usluga"></div>
+      </div>
+    </section>
+
+    <!-- ================= RADNO VRIJEME ================= -->
+    <section class="tab-sadrzaj" data-sadrzaj="radno" hidden>
+      <div class="kartica" id="kartica-radno">
+        <div class="kartica-naslov"><h2>Radno vrijeme</h2></div>
+        <form id="forma-radno">
+          <div class="radni-dani" id="radni-dani"></div>
+          <button class="dugme" type="submit">Sačuvaj radno vrijeme</button>
+        </form>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov">
+          <div>
+            <h2 id="neradni-naslov">Neradni dani</h2>
+            <p class="prigusen malo" id="neradni-opis">Praznici, godišnji odmor, bolovanje… Tih dana niko ne može zakazati.</p>
+          </div>
+        </div>
+        <form id="forma-neradni" class="red-polja neradni-forma">
+          <div class="polje"><label for="neradni-od">Od</label><input type="date" id="neradni-od" required></div>
+          <div class="polje"><label for="neradni-do">Do (nije obavezno)</label><input type="date" id="neradni-do"></div>
+          <div class="polje"><span class="oznaka">&nbsp;</span><button class="dugme drugo" type="submit">Dodaj</button></div>
+        </form>
+        <div class="neradni-lista" id="neradni-lista"></div>
+      </div>
+    </section>
+
+    <!-- ================= POSTAVKE (sve na jednom mjestu) ================= -->
+    <section class="tab-sadrzaj" data-sadrzaj="postavke" hidden>
+      <div class="kartica" id="kartica-smjestaj" hidden>
+        <div class="kartica-naslov">
+          <div>
+            <h2>Smještaj</h2>
+            <p class="prigusen malo">Cijena i pravila za tvoju vikendicu ili apartman. Gost na profilu bira datume i odmah vidi ukupnu cijenu.</p>
+          </div>
+        </div>
+        <form id="forma-smjestaj">
+          <div class="red-polja smjestaj-polja">
+            <div class="polje"><label for="smj-cijena">Cijena po noći (KM)</label><input id="smj-cijena" name="smj_cijena" type="text" inputmode="decimal" maxlength="10" placeholder="npr. 80" required></div>
+            <div class="polje"><label for="smj-vikend">Petak i subota (KM)</label><input id="smj-vikend" name="smj_cijena_vikend" type="text" inputmode="decimal" maxlength="10" placeholder="ista cijena"><span class="pomoc">Ostavi prazno ako je ista.</span></div>
+            <div class="polje"><label for="smj-min">Najmanje noćenja</label><input id="smj-min" name="smj_min_noci" type="number" min="1" max="30" step="1" inputmode="numeric"></div>
+            <div class="polje"><label for="smj-gosti">Najviše gostiju</label><input id="smj-gosti" name="smj_max_gostiju" type="number" min="1" max="50" step="1" inputmode="numeric"></div>
+            <div class="polje"><label for="smj-dolazak">Dolazak od</label><select id="smj-dolazak" name="smj_dolazak"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00">10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00" selected>14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select></div>
+            <div class="polje"><label for="smj-odlazak">Odlazak do</label><select id="smj-odlazak" name="smj_odlazak"><option value="00:00">00:00</option><option value="00:30">00:30</option><option value="01:00">01:00</option><option value="01:30">01:30</option><option value="02:00">02:00</option><option value="02:30">02:30</option><option value="03:00">03:00</option><option value="03:30">03:30</option><option value="04:00">04:00</option><option value="04:30">04:30</option><option value="05:00">05:00</option><option value="05:30">05:30</option><option value="06:00">06:00</option><option value="06:30">06:30</option><option value="07:00">07:00</option><option value="07:30">07:30</option><option value="08:00">08:00</option><option value="08:30">08:30</option><option value="09:00">09:00</option><option value="09:30">09:30</option><option value="10:00" selected>10:00</option><option value="10:30">10:30</option><option value="11:00">11:00</option><option value="11:30">11:30</option><option value="12:00">12:00</option><option value="12:30">12:30</option><option value="13:00">13:00</option><option value="13:30">13:30</option><option value="14:00">14:00</option><option value="14:30">14:30</option><option value="15:00">15:00</option><option value="15:30">15:30</option><option value="16:00">16:00</option><option value="16:30">16:30</option><option value="17:00">17:00</option><option value="17:30">17:30</option><option value="18:00">18:00</option><option value="18:30">18:30</option><option value="19:00">19:00</option><option value="19:30">19:30</option><option value="20:00">20:00</option><option value="20:30">20:30</option><option value="21:00">21:00</option><option value="21:30">21:30</option><option value="22:00">22:00</option><option value="22:30">22:30</option><option value="23:00">23:00</option><option value="23:30">23:30</option></select></div>
+          </div>
+          <button class="dugme" type="submit">Sačuvaj</button>
+        </form>
+      </div>
+
+      <form id="forma-pravila">
+        <div class="kartica">
+          <div class="kartica-naslov">
+            <div>
+              <h2>Potvrda termina</h2>
+              <p class="prigusen malo">Izaberi šta se dešava kad klijent zakaže termin preko tvog linka.</p>
+            </div>
+          </div>
+          <div class="izbor-opcija">
+            <label class="opcija-kartica">
+              <input type="radio" name="potvrda" value="1">
+              <span><strong>Ja potvrđujem svaki termin</strong>
+              <span>Termin čeka u kalendaru dok ga ne potvrdiš ili odbiješ. Klijent vidi „Zahtjev je poslan“.</span></span>
+            </label>
+            <label class="opcija-kartica">
+              <input type="radio" name="potvrda" value="0">
+              <span><strong>Termini se potvrđuju sami</strong>
+              <span>Čim klijent zakaže, termin je zakazan. U kalendaru piše „Zakazan automatski“.</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="kartica">
+          <div class="kartica-naslov"><h2>Rezervacije</h2></div>
+          <label class="prekidac">
+            <span class="opis"><strong>Klijent može dodati napomenu</strong><span>Npr. „Želim kraću frizuru“. Napomenu vidiš samo ti, zaključana je kao ime i telefon. U ordinacijama razmisli, jer napomena može otkriti nešto o zdravlju.</span></span>
+            <input type="checkbox" name="napomena_klijenta">
+          </label>
+          <div class="red-polja pravila-polja">
+            <div class="polje" id="polje-korak">
+              <label for="korak_min">Termini počinju svakih</label>
+              <select id="korak_min" name="korak_min">
+                <option value="10">10 minuta</option><option value="15">15 minuta</option><option value="20">20 minuta</option>
+                <option value="30">30 minuta</option><option value="45">45 minuta</option><option value="60">1 sat</option>
+                <option value="90">1,5 sat</option><option value="120">2 sata</option>
+              </select>
+            </div>
+            <div class="polje">
+              <label for="najava_min">Klijent može zakazati najkasnije</label>
+              <div class="broj-jedinica">
+                <input type="number" id="najava_min" name="najava_broj" min="0" step="1" inputmode="numeric">
+                <select name="najava_jedinica" aria-label="Jedinica">
+                  <option value="1">minuta</option><option value="60">sati</option><option value="1440">dana</option>
+                </select>
+              </div>
+              <span class="pomoc">koliko prije termina, npr. 2 sata ili 1 dan (0 = bilo kad)</span>
+            </div>
+            <div class="polje">
+              <label for="dana_unaprijed">Koliko unaprijed</label>
+              <select id="dana_unaprijed" name="dana_unaprijed">
+                <option value="7">7 dana</option><option value="14">14 dana</option><option value="30">30 dana</option>
+                <option value="60">60 dana</option><option value="90">90 dana</option><option value="180">6 mjeseci</option><option value="365">godinu dana</option>
+              </select>
+            </div>
+          </div>
+          <button class="dugme" type="submit">Sačuvaj postavke</button>
+        </div>
+      </form>
+
+      <div class="kartica" id="kartica-hitni">
+        <div class="kartica-naslov">
+          <div>
+            <h2>Hitni termini</h2>
+            <p class="prigusen malo">Klijent može izabrati hitan termin uz doplatu. Ti biraš dane i sate kada ih primaš, i za koliko su skuplji.</p>
+          </div>
+        </div>
+        <form id="forma-hitno">
+          <label class="prekidac">
+            <span class="opis"><strong>Primam hitne termine</strong><span>Na tvom profilu se pojavi izbor „Hitan termin“.</span></span>
+            <input type="checkbox" name="hitni_aktivno">
+          </label>
+          <div id="hitno-detalji">
+            <p class="oznaka">Potvrda hitnih termina</p>
+            <div class="izbor-opcija hitna-potvrda">
+              <label class="opcija-kartica">
+                <input type="radio" name="hitni_potvrda" value="1">
+                <span><strong>Ja potvrđujem svaki hitan termin</strong>
+                <span>Hitan termin čeka u kalendaru dok ga ne potvrdiš, bez obzira na to kako su podešeni obični termini.</span></span>
+              </label>
+              <label class="opcija-kartica">
+                <input type="radio" name="hitni_potvrda" value="0">
+                <span><strong>Hitni termini se potvrđuju sami</strong>
+                <span>Čim klijent zakaže hitan termin, on je zakazan.</span></span>
+              </label>
+            </div>
+            <div class="red-polja pravila-polja">
+              <div class="polje">
+                <label for="hitni_doplata">Doplata (%)</label>
+                <input type="number" id="hitni_doplata" name="hitni_doplata" min="0" max="300" step="1" inputmode="numeric">
+                <span class="pomoc" id="hitno-primjer"></span>
+              </div>
+              <div class="polje">
+              <label for="hitni_najava_min">Najkasnije prije</label>
+              <div class="broj-jedinica">
+                <input type="number" id="hitni_najava_min" name="hitni_najava_broj" min="0" step="1" inputmode="numeric">
+                <select name="hitni_najava_jedinica" aria-label="Jedinica">
+                  <option value="1">minuta</option><option value="60">sati</option><option value="1440">dana</option>
+                </select>
+              </div>
+              <span class="pomoc">koliko prije (0 = odmah)</span>
+            </div>
+            </div>
+            <p class="oznaka">Kada primaš hitne termine</p>
+            <div class="radni-dani" id="hitni-dani"></div>
+          </div>
+          <button class="dugme" type="submit">Sačuvaj hitne termine</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= PROFIL I IZGLED ================= -->
+    <section class="tab-sadrzaj" data-sadrzaj="izgled" hidden>
+      <div class="kartica link-kartica">
+        <div>
+          <h2>Tvoj link za Instagram</h2>
+          <p class="prigusen malo">Stavi ga u bio na Instagramu, u story ili ga pošalji klijentima.</p>
+        </div>
+        <div class="link-red">
+          <code id="javni-link"></code>
+          <button class="dugme" type="button" id="kopiraj-link">Kopiraj</button>
+          <a class="dugme drugo" id="otvori-link" target="_blank" rel="noopener" href="#">Otvori</a>
+        </div>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Tema</h2></div>
+        <p class="prigusen malo">Izaberi boje svog profila za klijente i svog panela. Promjena se odmah sačuva.</p>
+        <div class="izbor-tema" id="izbor-tema"></div>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Tvoja slika za pozadinu</h2></div>
+        <p class="prigusen malo">Umjesto obične pozadine teme možeš staviti svoju sliku iz galerije, npr. fotografiju salona. Kartice i dugmad zadržavaju boje izabrane teme, da se sve dobro čita.</p>
+        <div class="pozadina-red">
+          <div class="pozadina-pregled" id="pozadina-pregled"><span>Bez slike</span></div>
+          <div class="logo-dugmad">
+            <label class="dugme drugo" for="pozadina-fajl">Izaberi iz galerije</label>
+            <input type="file" id="pozadina-fajl" accept="image/png,image/jpeg,image/webp" class="sr-only">
+            <button class="dugme tekstualno" type="button" id="pozadina-ukloni" hidden>Ukloni sliku</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Logo / profilna slika</h2></div>
+        <div class="logo-red">
+          <button type="button" class="avatar-dugme veliko" id="logo-pregled-dugme" aria-label="Promijeni logo" title="Promijeni logo"><span class="avatar" id="logo-pregled"></span><span class="olovka" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16v4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="currentColor" stroke-width="2"/></svg></span></button>
+          <div class="logo-dugmad">
+            <label class="dugme drugo" for="logo-fajl">Promijeni sliku</label>
+            <input type="file" id="logo-fajl" accept="image/png,image/jpeg,image/webp" class="sr-only">
+            <button class="dugme tekstualno" type="button" id="logo-ukloni" hidden>Ukloni</button>
+            <p class="prigusen malo">Klikni na krug ili na dugme i izaberi sliku iz galerije. Najbolje kvadratna, PNG ili JPG. Smanjuje se automatski.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Podaci profila</h2></div>
+        <form id="forma-profil">
+          <div class="red-polja">
+            <div class="polje"><label for="f-naziv">Naziv</label><input id="f-naziv" name="naziv" type="text" maxlength="80" required></div>
+            <div class="polje"><label for="f-kategorija">Djelatnost</label><select id="f-kategorija" name="kategorija"></select></div>
+            <div class="polje" id="polje-f-djelatnost" hidden><label for="f-djelatnost">Upiši svoju djelatnost</label><input id="f-djelatnost" name="kategorija_tekst" type="text" maxlength="60" placeholder="npr. Stolar, Krojačica"></div>
+          </div>
+          <div class="polje"><label for="f-opis">Kratki opis</label><textarea id="f-opis" name="opis" maxlength="600" placeholder="npr. Šišanje, farbanje i njega kose u centru grada."></textarea></div>
+          <div class="red-polja">
+            <div class="polje"><label for="f-adresa">Adresa</label><input id="f-adresa" name="adresa" type="text" maxlength="120"></div>
+            <div class="polje"><label for="f-grad">Grad</label><input id="f-grad" name="grad" type="text" maxlength="60"></div>
+          </div>
+          <div class="red-polja">
+            <div class="polje"><label for="f-telefon">Telefon (javni)</label><input id="f-telefon" name="telefon" type="tel" maxlength="30"></div>
+            <div class="polje"><label for="f-instagram">Instagram</label><div class="prefiks"><span>@</span><input id="f-instagram" name="instagram" type="text" maxlength="60"></div></div>
+          </div>
+          <div class="polje">
+            <label for="f-slug">Adresa profila</label>
+            <div class="prefiks"><span id="slug-prefiks"></span><input id="f-slug" name="slug" type="text" maxlength="40" required></div>
+            <span class="pomoc">Ako je promijeniš, stari link prestaje raditi, pa ga promijeni i na Instagramu.</span>
+          </div>
+          <button class="dugme" type="submit">Sačuvaj</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= RAČUN ================= -->
+    <section class="tab-sadrzaj" data-sadrzaj="racun" hidden>
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Pretplata</h2></div>
+        <div id="pretplata-detalji"></div>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Vlasnik računa</h2></div>
+        <form id="forma-vlasnik">
+          <div class="red-polja">
+            <div class="polje"><label for="v-ime">Ime</label><input id="v-ime" name="vlasnik_ime" type="text" maxlength="40" autocomplete="given-name" required></div>
+            <div class="polje"><label for="v-prezime">Prezime</label><input id="v-prezime" name="vlasnik_prezime" type="text" maxlength="40" autocomplete="family-name" required></div>
+          </div>
+          <button class="dugme drugo" type="submit">Sačuvaj</button>
+        </form>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Promjena lozinke</h2></div>
+        <p class="prigusen malo">Email računa: <b id="racun-email"></b></p>
+        <form id="forma-lozinka">
+          <div class="red-polja">
+            <div class="polje"><label for="stara">Trenutna lozinka</label><input id="stara" name="stara" type="password" autocomplete="current-password" required></div>
+            <div class="polje"><label for="nova">Nova lozinka</label><input id="nova" name="nova" type="password" autocomplete="new-password" minlength="8" required></div>
+          </div>
+          <button class="dugme drugo" type="submit">Promijeni lozinku</button>
+        </form>
+      </div>
+
+      <div class="kartica">
+        <div class="kartica-naslov"><h2>Privatnost klijenata</h2></div>
+        <p class="prigusen malo">Imena i telefoni tvojih klijenata zaključani su tvojim ključem. Otključavaju se samo u tvom pregledniku kad se prijaviš. Ne vidi ih niko drugi, ni Konekt. Ako si izgubio/la kod oporavka, napravi novi. Stari kod tada prestaje važiti.</p>
+        <button class="dugme drugo" type="button" id="dugme-novi-kod">Napravi novi kod oporavka</button>
+      </div>
+
+      <div class="kartica opasna-zona">
+        <div class="kartica-naslov"><h2>Brisanje računa</h2></div>
+        <p class="prigusen malo">Trajno briše profil, usluge i sve termine s imenima i telefonima klijenata. Ovo se ne može vratiti.</p>
+        <button class="dugme opasno" type="button" id="dugme-obrisi-racun">Obriši račun</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Dijalozi ===== -->
+  <dialog id="dijalog-termin">
+    <form method="dialog" id="forma-termin">
+      <h2>Novi termin</h2>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="polje"><label for="t-usluga">Usluga</label><select id="t-usluga" name="usluga_id" required></select></div>
+      <div class="red-polja">
+        <div class="polje"><label for="t-datum">Datum</label><input id="t-datum" name="datum" type="date" required></div>
+        <div class="polje"><label for="t-od">Vrijeme</label><input id="t-od" name="od" type="time" step="300" required></div>
+      </div>
+      <div class="polje"><label for="t-ime">Ime i prezime klijenta</label><input id="t-ime" name="ime" type="text" maxlength="80" required></div>
+      <div class="polje"><label for="t-telefon">Telefon (nije obavezno)</label><input id="t-telefon" name="telefon" type="tel" maxlength="30"></div>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Odustani</button>
+        <button class="dugme" type="submit" value="ok">Dodaj termin</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dijalog-boravak">
+    <form method="dialog" id="forma-boravak">
+      <h2>Nova rezervacija</h2>
+      <p class="prigusen malo">Za goste koji su se javili telefonom ili porukom.</p>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="red-polja">
+        <div class="polje"><label for="bo-dolazak">Dolazak</label><input id="bo-dolazak" name="dolazak" type="date" required></div>
+        <div class="polje"><label for="bo-odlazak">Odlazak</label><input id="bo-odlazak" name="odlazak" type="date" required></div>
+      </div>
+      <div class="polje"><label for="bo-ime">Ime i prezime gosta</label><input id="bo-ime" name="ime" type="text" maxlength="80" required></div>
+      <div class="red-polja">
+        <div class="polje"><label for="bo-telefon">Telefon</label><input id="bo-telefon" name="telefon" type="tel" maxlength="30"></div>
+        <div class="polje"><label for="bo-gosti">Broj gostiju</label><input id="bo-gosti" name="gosti" type="number" min="1" max="50" value="2"></div>
+      </div>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Odustani</button>
+        <button class="dugme" type="submit" value="ok">Upiši rezervaciju</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dijalog-blok">
+    <form method="dialog" id="forma-blok">
+      <h2>Blokiraj vrijeme</h2>
+      <p class="prigusen malo">U tom vremenu klijenti ne mogu zakazati (npr. privatna obaveza).</p>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="polje"><label for="b-datum">Datum</label><input id="b-datum" name="datum" type="date" required></div>
+      <div class="red-polja">
+        <div class="polje"><label for="b-od">Od</label><select id="b-od" name="od" required></select></div>
+        <div class="polje"><label for="b-do">Do</label><select id="b-do" name="do" required></select></div>
+      </div>
+      <div class="polje"><label for="b-napomena">Napomena (vidiš samo ti)</label><input id="b-napomena" name="napomena" type="text" maxlength="80" placeholder="npr. Pauza"></div>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Odustani</button>
+        <button class="dugme" type="submit" value="ok">Blokiraj</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dijalog-usluga">
+    <form method="dialog" id="forma-usluga">
+      <h2 id="usluga-naslov">Nova usluga</h2>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="polje"><label for="u-naziv">Naziv</label><input id="u-naziv" name="naziv" type="text" maxlength="80" required placeholder="npr. Šišanje i feniranje"></div>
+      <div class="polje">
+        <label for="u-grupa">Grupa (nije obavezno)</label>
+        <input id="u-grupa" name="grupa" type="text" maxlength="50" list="grupe-usluga" placeholder="npr. Šišanje, Farbanje, Pregledi">
+        <datalist id="grupe-usluga"></datalist>
+        <span class="pomoc">Kad imaš mnogo usluga, klijenti ih vide složene po grupama.</span>
+      </div>
+      <div class="red-polja">
+        <div class="polje">
+          <label for="u-trajanje">Trajanje</label>
+          <div class="broj-jedinica">
+            <input id="u-trajanje" name="trajanje_broj" type="number" min="1" step="any" inputmode="decimal" required>
+            <select name="trajanje_jedinica" id="u-jedinica" aria-label="Jedinica trajanja">
+              <option value="min">minuta</option><option value="h">sati</option><option value="dan">radnih dana</option>
+            </select>
+          </div>
+          <span class="pomoc" id="u-trajanje-pomoc">Upiši koliko traje, npr. 45 minuta, 1,5 sat ili 2 radna dana.</span>
+        </div>
+        <div class="polje"><label for="u-cijena">Cijena (KM)</label><input id="u-cijena" name="cijena" type="text" inputmode="decimal" maxlength="10" placeholder="npr. 25"></div>
+      </div>
+      <div class="polje"><label for="u-opis">Opis (nije obavezno)</label><input id="u-opis" name="opis" type="text" maxlength="300"></div>
+      <label class="prekidac">
+        <span class="opis"><strong>Vidljiva klijentima</strong><span>Isključi ako uslugu privremeno ne nudiš.</span></span>
+        <input type="checkbox" name="aktivna" checked>
+      </label>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Odustani</button>
+        <button class="dugme" type="submit" value="ok">Sačuvaj</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dijalog-otkljucaj">
+    <form method="dialog" id="forma-otkljucaj">
+      <h2>Otključaj klijente</h2>
+      <p class="prigusen">Na ovom uređaju još nisu otključana imena i telefoni klijenata. Upiši svoju lozinku. Ona ostaje na uređaju i ne šalje se nikome.</p>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="polje"><label for="otkljucaj-lozinka">Lozinka</label><input id="otkljucaj-lozinka" name="lozinka" type="password" autocomplete="current-password" required></div>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Kasnije</button>
+        <button class="dugme" type="submit" value="ok">Otključaj</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dijalog-lozinka-kod">
+    <form method="dialog" id="forma-lozinka-kod">
+      <h2>Novi kod oporavka</h2>
+      <p class="prigusen">Za potvrdu upiši svoju lozinku.</p>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="polje"><label for="kod-lozinka">Lozinka</label><input id="kod-lozinka" name="lozinka" type="password" autocomplete="current-password" required></div>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Odustani</button>
+        <button class="dugme" type="submit" value="ok">Napravi kod</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="dijalog-kod">
+    <div class="sadrzaj">
+      <h2>Tvoj novi kod oporavka</h2>
+      <p class="prigusen">Sačuvaj ga na sigurno mjesto. Konekt ga nema i ne može ti ga poslati ponovo.</p>
+      <div class="kod-oporavka" id="novi-kod-tekst"></div>
+      <div class="dijalog-dugmad">
+        <a class="dugme" id="novi-kod-email" href="#">Pošalji sebi na email</a>
+        <button class="dugme drugo" type="button" id="novi-kod-kopiraj">Kopiraj</button>
+        <button class="dugme drugo" type="button" id="novi-kod-preuzmi">Sačuvaj kao fajl</button>
+        <button class="dugme tekstualno" type="button" data-zatvori>Gotovo</button>
+      </div>
+    </div>
+  </dialog>
+
+  <dialog id="dijalog-brisanje">
+    <form method="dialog" id="forma-brisanje">
+      <h2>Obriši račun?</h2>
+      <p class="prigusen">Svi podaci se trajno brišu. Za potvrdu upiši lozinku.</p>
+      <div class="poruka greska" role="alert" hidden></div>
+      <div class="polje"><label for="brisanje-lozinka">Lozinka</label><input id="brisanje-lozinka" name="lozinka" type="password" autocomplete="current-password" required></div>
+      <div class="dijalog-dugmad">
+        <button class="dugme tekstualno" type="button" data-zatvori>Odustani</button>
+        <button class="dugme opasno" type="submit" value="ok">Trajno obriši</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>

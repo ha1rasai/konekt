@@ -1,0 +1,229 @@
+/* =====================================================================
+   Teme za pozadinu. Biznis bira temu u panelu (Profil i izgled),
+   a ona važi za njegov javni profil i za njegov panel.
+   Svaka tema mijenja samo varijable; komponente su iste.
+   Nova tema: dodaj blok ovdje i red u src/teme.js.
+   ===================================================================== */
+
+:root,
+[data-tema="konekt"] {
+  --bg: #f4f7fc;
+  --bg-ukras: radial-gradient(1200px 500px at 85% -10%, #dfe8f6 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #fde9dc 0%, transparent 55%);
+  --povrsina: #ffffff;
+  --povrsina-2: #f0f4fa;
+  --tekst: #1b2333;
+  --tekst-2: #5b6578;
+  --rub: #dde3ee;
+  --akcent: #4872b0;
+  --akcent-jaci: #3a5e94;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #e6edf8;
+  --drugi: #f0a878;
+  --logo-prsten: #4872b0;
+  --logo-kazaljke: #f0a878;
+  --sjena: 0 1px 2px rgba(27, 35, 51, .05), 0 8px 24px rgba(27, 35, 51, .06);
+  color-scheme: light;
+}
+
+[data-tema="noc"] {
+  --bg: #0d1117;
+  --bg-ukras: radial-gradient(1000px 500px at 80% -10%, #18233a 0%, transparent 60%),
+              radial-gradient(800px 400px at -10% 110%, #2a1d17 0%, transparent 55%);
+  --povrsina: #161c26;
+  --povrsina-2: #1d2531;
+  --tekst: #e8edf5;
+  --tekst-2: #9aa6b8;
+  --rub: #2a3442;
+  --akcent: #8fb0e0;
+  --akcent-jaci: #a9c3ea;
+  --akcent-tekst: #0d1117;
+  --akcent-blag: #1d2a3e;
+  --drugi: #f0a878;
+  --logo-prsten: #8fb0e0;
+  --logo-kazaljke: #f0a878;
+  --sjena: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+  color-scheme: dark;
+}
+
+[data-tema="breskva"] {
+  --bg: #fdf3ec;
+  --bg-ukras: radial-gradient(1100px 500px at 90% -10%, #fbe0cf 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #fff6d9 0%, transparent 55%);
+  --povrsina: #ffffff;
+  --povrsina-2: #fbf0e8;
+  --tekst: #3a2618;
+  --tekst-2: #7d6656;
+  --rub: #f0dfd2;
+  --akcent: #c9662f;
+  --akcent-jaci: #a9521f;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #fbe6d8;
+  --drugi: #4872b0;
+  --logo-prsten: #c9662f;
+  --logo-kazaljke: #4872b0;
+  --sjena: 0 1px 2px rgba(58, 38, 24, .05), 0 8px 24px rgba(58, 38, 24, .07);
+  color-scheme: light;
+}
+
+[data-tema="ruza"] {
+  --bg: #fcf0f3;
+  --bg-ukras: radial-gradient(1100px 500px at 85% -10%, #f8d9e3 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #f3e3f7 0%, transparent 55%);
+  --povrsina: #ffffff;
+  --povrsina-2: #faeef2;
+  --tekst: #3b1f2a;
+  --tekst-2: #80606c;
+  --rub: #f0d9e1;
+  --akcent: #b8446f;
+  --akcent-jaci: #97355a;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #f9e1ea;
+  --drugi: #e9a3b8;
+  --logo-prsten: #b8446f;
+  --logo-kazaljke: #e9a3b8;
+  --sjena: 0 1px 2px rgba(59, 31, 42, .05), 0 8px 24px rgba(59, 31, 42, .07);
+  color-scheme: light;
+}
+
+[data-tema="lavanda"] {
+  --bg: #f4f1fb;
+  --bg-ukras: radial-gradient(1100px 500px at 85% -10%, #e4dcf6 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #dcecf7 0%, transparent 55%);
+  --povrsina: #ffffff;
+  --povrsina-2: #f1edfa;
+  --tekst: #272040;
+  --tekst-2: #6b6485;
+  --rub: #e2dcf1;
+  --akcent: #6a4fbb;
+  --akcent-jaci: #563e9e;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #ebe5f8;
+  --drugi: #c4b2ef;
+  --logo-prsten: #6a4fbb;
+  --logo-kazaljke: #f0a878;
+  --sjena: 0 1px 2px rgba(39, 32, 64, .05), 0 8px 24px rgba(39, 32, 64, .07);
+  color-scheme: light;
+}
+
+[data-tema="menta"] {
+  --bg: #eef8f4;
+  --bg-ukras: radial-gradient(1100px 500px at 85% -10%, #d3efe3 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #e9f5d8 0%, transparent 55%);
+  --povrsina: #ffffff;
+  --povrsina-2: #eaf5f0;
+  --tekst: #17302a;
+  --tekst-2: #557069;
+  --rub: #d6eae2;
+  --akcent: #2a8466;
+  --akcent-jaci: #1f6a51;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #ddf1e9;
+  --drugi: #f0a878;
+  --logo-prsten: #2a8466;
+  --logo-kazaljke: #f0a878;
+  --sjena: 0 1px 2px rgba(23, 48, 42, .05), 0 8px 24px rgba(23, 48, 42, .07);
+  color-scheme: light;
+}
+
+[data-tema="more"] {
+  --bg: #ecf6f9;
+  --bg-ukras: radial-gradient(1100px 500px at 85% -10%, #cfe9f1 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #def3ec 0%, transparent 55%);
+  --povrsina: #ffffff;
+  --povrsina-2: #e8f3f7;
+  --tekst: #13303a;
+  --tekst-2: #52707a;
+  --rub: #d3e7ee;
+  --akcent: #1c7590;
+  --akcent-jaci: #155d73;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #dbeff5;
+  --drugi: #f0a878;
+  --logo-prsten: #1c7590;
+  --logo-kazaljke: #f0a878;
+  --sjena: 0 1px 2px rgba(19, 48, 58, .05), 0 8px 24px rgba(19, 48, 58, .07);
+  color-scheme: light;
+}
+
+[data-tema="pijesak"] {
+  --bg: #f7f2e9;
+  --bg-ukras: radial-gradient(1100px 500px at 85% -10%, #ede2cd 0%, transparent 60%),
+              radial-gradient(900px 400px at -10% 110%, #f3e9e1 0%, transparent 55%);
+  --povrsina: #fffdf8;
+  --povrsina-2: #f4eee3;
+  --tekst: #33281c;
+  --tekst-2: #74675a;
+  --rub: #e7dccb;
+  --akcent: #8d5f33;
+  --akcent-jaci: #744c26;
+  --akcent-tekst: #ffffff;
+  --akcent-blag: #f1e6d6;
+  --drugi: #c9a27a;
+  --logo-prsten: #8d5f33;
+  --logo-kazaljke: #c9a27a;
+  --sjena: 0 1px 2px rgba(51, 40, 28, .05), 0 8px 24px rgba(51, 40, 28, .07);
+  color-scheme: light;
+}
+
+[data-tema="grafit"] {
+  --bg: #1c1d21;
+  --bg-ukras: radial-gradient(1000px 500px at 80% -10%, #2b2a26 0%, transparent 60%),
+              radial-gradient(800px 400px at -10% 110%, #24262c 0%, transparent 55%);
+  --povrsina: #26282d;
+  --povrsina-2: #2e3036;
+  --tekst: #eeece8;
+  --tekst-2: #a6a39c;
+  --rub: #3a3c42;
+  --akcent: #e8b86d;
+  --akcent-jaci: #f0c98a;
+  --akcent-tekst: #1c1d21;
+  --akcent-blag: #3a3428;
+  --drugi: #8fb0e0;
+  --logo-prsten: #e8b86d;
+  --logo-kazaljke: #8fb0e0;
+  --sjena: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+  color-scheme: dark;
+}
+
+[data-tema="sampanj"] {
+  --bg: #141210;
+  --bg-ukras: radial-gradient(1000px 500px at 80% -10%, #2a241b 0%, transparent 60%),
+              radial-gradient(800px 400px at -10% 110%, #1f1a14 0%, transparent 55%);
+  --povrsina: #1f1c18;
+  --povrsina-2: #29251f;
+  --tekst: #f3ece2;
+  --tekst-2: #b0a594;
+  --rub: #3a342b;
+  --akcent: #d8b98a;
+  --akcent-jaci: #e6cca5;
+  --akcent-tekst: #141210;
+  --akcent-blag: #352d22;
+  --drugi: #f0a878;
+  --logo-prsten: #d8b98a;
+  --logo-kazaljke: #f0a878;
+  --sjena: 0 1px 2px rgba(0, 0, 0, .35), 0 8px 24px rgba(0, 0, 0, .4);
+  color-scheme: dark;
+}
+
+/* Konekt-ove vlastite stranice (početna, prijava, admin) prate svijetli/tamni način uređaja. */
+@media (prefers-color-scheme: dark) {
+  [data-tema="auto"] {
+    --bg: #0d1117;
+    --bg-ukras: radial-gradient(1000px 500px at 80% -10%, #18233a 0%, transparent 60%),
+                radial-gradient(800px 400px at -10% 110%, #2a1d17 0%, transparent 55%);
+    --povrsina: #161c26;
+    --povrsina-2: #1d2531;
+    --tekst: #e8edf5;
+    --tekst-2: #9aa6b8;
+    --rub: #2a3442;
+    --akcent: #8fb0e0;
+    --akcent-jaci: #a9c3ea;
+    --akcent-tekst: #0d1117;
+    --akcent-blag: #1d2a3e;
+    --logo-prsten: #8fb0e0;
+    --logo-kazaljke: #f0a878;
+    --sjena: 0 1px 2px rgba(0, 0, 0, .3), 0 8px 24px rgba(0, 0, 0, .35);
+    color-scheme: dark;
+  }
+}

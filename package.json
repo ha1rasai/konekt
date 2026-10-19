@@ -1,0 +1,23 @@
+{
+  "name": "konekt",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Konekt – online zakazivanje termina za frizere, kozmetičare, ordinacije, fotografe i sve ostale.",
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "start": "node --disable-warning=ExperimentalWarning server.js",
+    "dev": "node --disable-warning=ExperimentalWarning --watch server.js",
+    "postavi": "node scripts/postavi.js",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.js"
+  },
+  "dependencies": {
+    "@fontsource/figtree": "^5.1.1",
+    "@fontsource/urbanist": "^5.1.1",
+    "express": "^5.1.0",
+    "nodemailer": "10.0.13"
+  }
+}

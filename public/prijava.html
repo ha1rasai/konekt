@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="bs" data-tema="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Prijava – Konekt</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/css/fontovi.css">
+  <link rel="stylesheet" href="/css/teme.css">
+  <link rel="stylesheet" href="/css/konekt.css">
+  <link rel="stylesheet" href="/css/prijava.css">
+  <script type="module" src="/js/prijava.js"></script>
+</head>
+<body>
+  <main class="prijava-omot">
+    <div class="prijava-logo">
+      <a class="wordmark" href="/" aria-label="Konekt">k<svg class="sat" viewBox="0 0 40 40" aria-hidden="true"><circle class="prsten" cx="20" cy="20" r="16"/><path class="kazaljke" d="M20 20V11.5M20 20l6.5 4"/></svg>nekt</a>
+    </div>
+
+    <!-- Prijava -->
+    <section class="kartica" data-nacin="prijava" hidden>
+      <h1>Dobro došli nazad</h1>
+      <p class="prigusen">Prijavi se u svoj Konekt panel.</p>
+      <form id="forma-prijava" novalidate>
+        <div class="poruka greska" role="alert" hidden></div>
+        <div class="polje"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="polje"><label for="p-lozinka">Lozinka</label><input id="p-lozinka" name="lozinka" type="password" autocomplete="current-password" required></div>
+        <button class="dugme puno veliko" type="submit">Prijavi se</button>
+      </form>
+      <p class="prijava-linkovi"><a href="/zaboravljena-lozinka">Zaboravljena lozinka?</a></p>
+      <p class="prijava-linkovi">Nemaš profil? <a href="/registracija">Saznaj kako ga dobiti</a></p>
+    </section>
+
+    <!-- Registracija -->
+    <section class="kartica" data-nacin="registracija" hidden>
+      <h1>Otvori svoj profil</h1>
+      <div id="bez-pozivnice" hidden>
+        <p class="prigusen">Konekt profil se otvara uz pozivnicu. Dobiješ je čim uplatiš pretplatu, gotovinom ili na račun.</p>
+        <div class="poruka info">Javi nam se i dogovorimo pretplatu. Nakon uplate za par minuta dobiješ link za otvaranje profila.</div>
+        <div class="kontakt-opcije">
+        <a class="kontakt-dugme poziv" href="tel:+387671406698">
+          <span class="kontakt-ikona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 005 5L15 13l5 2v4a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg></span>
+          <span><strong>Pozovi</strong><small>067-140-6698</small></span>
+        </a>
+        <a class="kontakt-dugme viber" href="viber://chat?number=%2B387671406698">
+          <span class="kontakt-ikona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3c5 0 8.5 2.6 8.5 7.6 0 4.6-3.3 7.4-8.3 7.4-.8 0-1.6-.1-2.3-.2L6.5 20.5v-3.3C4.4 15.9 3.5 13.6 3.5 10.6 3.5 5.6 7 3 12 3z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9.5 8.5c.3 2.3 2.2 4.3 4.6 4.8M13 7.5a3 3 0 012.6 2.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></span>
+          <span><strong>Viber</strong><small>Pošalji poruku</small></span>
+        </a>
+        <a class="kontakt-dugme whatsapp" href="https://wa.me/387671406698" target="_blank" rel="noopener">
+          <span class="kontakt-ikona" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 20l1.2-4A8 8 0 1112 20a8 8 0 01-4-1.1L4 20z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><path d="M9 8.5c0 3.3 3 6.5 6.5 6.5l1-1.5-2-1-1 .8a4.5 4.5 0 01-2.3-2.3l.8-1-1-2L9 8.5z" fill="currentColor"/></svg></span>
+          <span><strong>WhatsApp</strong><small>Pošalji poruku</small></span>
+        </a>
+        <a class="kontakt-dugme sms" href="sms:+387671406698">
+          <span class="kontakt-ikona" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="1.9"/><path d="M8 17l-2 3v-3" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/><circle cx="8.5" cy="11" r="1.1" fill="currentColor"/><circle cx="12" cy="11" r="1.1" fill="currentColor"/><circle cx="15.5" cy="11" r="1.1" fill="currentColor"/></svg></span>
+          <span><strong>SMS</strong><small>Pošalji poruku</small></span>
+        </a>
+      </div>
+        <a class="dugme puno drugo" href="/demo" style="margin-top:10px">Pogledaj primjer profila</a>
+      </div>
+      <form id="forma-registracija" novalidate hidden>
+        <p class="prigusen">Hvala na uplati! Usluge, radno vrijeme i logo dodaješ poslije, u panelu.</p>
+        <div class="poruka greska" role="alert" hidden></div>
+        <input type="hidden" name="pozivnica">
+        <div class="red-polja">
+          <div class="polje"><label for="r-ime">Tvoje ime</label><input id="r-ime" name="vlasnik_ime" type="text" autocomplete="given-name" maxlength="40" required></div>
+          <div class="polje"><label for="r-prezime">Prezime</label><input id="r-prezime" name="vlasnik_prezime" type="text" autocomplete="family-name" maxlength="40" required></div>
+        </div>
+        <div class="polje"><label for="r-naziv">Naziv (salona, ordinacije, studija…)</label><input id="r-naziv" name="naziv" type="text" autocomplete="organization" maxlength="80" required placeholder="npr. Salon Amra"></div>
+        <div class="polje"><label for="r-kategorija">Čime se baviš?</label><select id="r-kategorija" name="kategorija"></select></div>
+        <div class="polje" id="polje-r-djelatnost" hidden><label for="r-djelatnost">Upiši svoju djelatnost</label><input id="r-djelatnost" name="kategorija_tekst" type="text" maxlength="60" placeholder="npr. Stolar, Krojačica, Vodoinstalater"></div>
+        <div class="polje"><label for="r-email">Email</label><input id="r-email" name="email" type="email" autocomplete="email" required><span class="pomoc">Na ovaj email stižu obavijesti o novim terminima.</span></div>
+        <div class="polje"><label for="r-lozinka">Lozinka</label><input id="r-lozinka" name="lozinka" type="password" autocomplete="new-password" minlength="8" required><span class="pomoc">Najmanje 8 znakova.</span></div>
+        <label class="kvacica polje"><input type="checkbox" name="uslovi" required><span>Prihvatam <a href="/uslovi" target="_blank">uslove korištenja</a> i <a href="/privatnost" target="_blank">pravila privatnosti</a>. Razumijem da sam ja vlasnik podataka svojih klijenata.</span></label>
+        <button class="dugme puno veliko" type="submit">Otvori profil</button>
+      </form>
+      <p class="prijava-linkovi">Već imaš profil? <a href="/prijava">Prijavi se</a></p>
+    </section>
+
+    <!-- Kod oporavka (poslije registracije) -->
+    <section class="kartica" id="sekcija-kod" hidden>
+      <h1>Tvoj kod oporavka</h1>
+      <p class="prigusen">Imena i telefoni tvojih klijenata zaključani su tvojom lozinkom. Ne vidi ih niko drugi, ni Konekt. Ako zaboraviš lozinku, samo ovim kodom ih možeš otključati.</p>
+      <div class="kod-oporavka" id="kod-tekst" aria-live="polite"></div>
+      <div class="kod-dugmad">
+        <a class="dugme" id="kod-email" href="#">Pošalji sebi na email</a>
+        <button class="dugme drugo" type="button" id="kod-kopiraj">Kopiraj</button>
+        <button class="dugme drugo" type="button" id="kod-preuzmi">Sačuvaj kao fajl</button>
+      </div>
+      <p class="malo prigusen">Dugme za email otvara tvoj email program, pa kod ide direktno tebi i ne prolazi kroz Konekt. Možeš ga i zapisati ili slikati.</p>
+      <label class="kvacica polje"><input type="checkbox" id="kod-sacuvan"><span>Sačuvao/la sam kod na sigurno mjesto.</span></label>
+      <button class="dugme puno veliko" type="button" id="kod-nastavi" disabled>Nastavi u panel</button>
+    </section>
+
+    <!-- Zaboravljena lozinka -->
+    <section class="kartica" data-nacin="zaboravljena-lozinka" hidden>
+      <h1>Nova lozinka</h1>
+      <p class="prigusen">Upiši email svog računa i poslaćemo ti link za novu lozinku.</p>
+      <form id="forma-zaboravljena" novalidate>
+        <div class="poruka greska" role="alert" hidden></div>
+        <div class="polje"><label for="z-email">Email</label><input id="z-email" name="email" type="email" autocomplete="email" required></div>
+        <button class="dugme puno veliko" type="submit">Pošalji link</button>
+      </form>
+      <div class="poruka uspjeh" id="zaboravljena-ok" hidden>Ako račun s tim emailom postoji, link je poslan. Provjeri i spam folder.</div>
+      <p class="prijava-linkovi"><a href="/prijava">Nazad na prijavu</a></p>
+    </section>
+
+    <!-- Postavljanje nove lozinke -->
+    <section class="kartica" data-nacin="nova-lozinka" hidden>
+      <h1>Postavi novu lozinku</h1>
+      <form id="forma-nova" novalidate>
+        <div class="poruka greska" role="alert" hidden></div>
+        <div class="polje" id="polje-kod">
+          <label for="n-kod">Kod oporavka</label>
+          <input id="n-kod" name="kod" type="text" autocomplete="off" spellcheck="false" placeholder="XXXX-XXXX-XXXX-XXXX-XXXX">
+          <span class="pomoc">Kod si dobio/la pri otvaranju računa. S njim ostaju sačuvana imena i telefoni klijenata.</span>
+        </div>
+        <label class="kvacica polje"><input type="checkbox" name="bez_koda" id="n-bez-koda"><span>Nemam kod. Razumijem da imena i telefoni iz dosadašnjih termina ostaju zaključani zauvijek, a termini i usluge ostaju.</span></label>
+        <div class="polje"><label for="n-lozinka">Nova lozinka</label><input id="n-lozinka" name="lozinka" type="password" autocomplete="new-password" minlength="8" required><span class="pomoc">Najmanje 8 znakova.</span></div>
+        <button class="dugme puno veliko" type="submit">Sačuvaj i prijavi se</button>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
